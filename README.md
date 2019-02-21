@@ -1,7 +1,6 @@
-# xinwuya.github.io
+# C++基础
 
-### XINWUYA
 
-# Header 1
-## Header 2
-### Header 3
+## 一、王道
+[1 数组](/王道/1数组/王道_数组.md)
+[2 字符串](/王道/2字符串/王道_字符串.md)
