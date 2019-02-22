@@ -14,5 +14,5 @@ include:
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
 
-theme: jekyll-theme-time-machine
+theme: jekyll-theme-cayman
 title: XIN WUYA
