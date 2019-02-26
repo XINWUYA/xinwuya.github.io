@@ -31,4 +31,4 @@
 
 
 
-![头像](https://github.com/XINWUYA/xinwuya.github.io/tree/master/image/tx.jpg)
+![头像](https://raw.githubusercontent.com/XINWUYA/xinwuya.github.io/master/image/tx.jpg)
