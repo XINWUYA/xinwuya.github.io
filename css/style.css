@@ -15,7 +15,7 @@ input, textarea, select {margin:0; padding:0px;}
 /* ------------------------------------Html-Body------------------------------- */
 /* ---------------------------------------------------------------------------- */
 html, body {width:100%; padding:0; margin:0;}
-body {background: #222222;color: #4D4D4D;font: 14px/25px Arial, Helvetica, sans-serif;}
+body {background: #222222;color: #4D4D4D;font: 15px/25px Arial, Helvetica, sans-serif;}
 body .wrap-body{}
 
 a{color: #4C4C4C;text-decoration: none;}
@@ -80,7 +80,7 @@ nav .menu{}/*-component.css-*/
 footer {margin-top:20px; padding-top: 30px;}
 footer .wrap-footer{text-align: center;}
 
-footer h1{font-size: 55px;}
+footer h1{font-size: 30px;}
 footer p{margin: 10px;}
 footer .menu-bottom{ margin: auto; text-align: center; display: inline-block;}
 footer .menu-bottom a{text-transform: uppercase; font-weight: bold;}

@@ -87,7 +87,7 @@
 		<div class="col-3-4">
 			<div id="main-content" class="wrap-col">
 				<article>
-					<img src="../images/img01.jpg" />
+					<img src="./images/new_and_malloc.jpg" />
 					<div class="art-header">
 						<h2>new和malloc的区别</h2>
 						<div class="info">By xinwuya on Feb 27, 2019</div>
@@ -200,7 +200,7 @@
 							<p>使用new操作符申请内存分配时无须指定内存块的大小，编译器会根据类型信息自行计算，而malloc则需要显式地指出所需内存的尺寸。</p>
 						</div>
 						<div id="text_05">
-						<h3>5.是否调用构造函数/析构函数</h3>
+						<h3>5.是否调用构造/析构函数</h3>
 							<p>使用new操作符来分配对象内存时会经历三个步骤：
 							第一步：调用operator new 函数（对于数组是operator new[]）分配一块足够大的，原始的，未命名的内存空间以便存储特定类型的对象。
 							第二步：编译器运行相应的构造函数以构造对象，并为其传入初值。
@@ -230,7 +230,7 @@
 							<code>int * ptr = (int *) malloc( sizeof(int) * 10 );//分配一个10个int元素的数组</code></p>
 						</div>
 						<div id="text_07">
-							<h3>7.new与malloc是否可以相互调用</h3>
+							<h3>7.是否可以相互调用</h3>
 							<p>operator new /operator delete的实现可以基于malloc，而malloc的实现不可以去调用new。</p>
 							<p>下面是编写operator new /operator delete 的一种简单方式，其他版本也与之类似：</p>
 							<pre><code class="language-c++">void * operator new (sieze_t size)<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>if(void * mem = malloc(size)<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>return mem;<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>else<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>throw bad_alloc();<br/>}<br/>void operator delete(void *mem) noexcept<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>free(mem);<br/>}</code></pre>
@@ -287,11 +287,11 @@
 					            <br/>
 					        <a href="#text_04">4.是否指定内存大小</a>
 					            <br/>
-					        <a href="#text_05">5.是否调用构造函数/析构函数</a>
+					        <a href="#text_05">5.是否调用构造/析构函数</a>
 					            <br/>
 					        <a href="#text_06">6.对数组的处理</a>
 					            <br/>
-					        <a href="#text_07">7.new与malloc是否可以相互调用</a>
+					        <a href="#text_07">7.是否可以相互调用</a>
 					            <br/>
 					        <a href="#text_08">8.是否可以被重载</a>
 					            <br/>
