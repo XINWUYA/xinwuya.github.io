@@ -35,7 +35,6 @@ th, td {height:25px;line-height:25px;text-align:center;border:1px solid #ccc;}
 
 .context{
 	position: fixed;
-	right:5%;
 }
 .context_items{
 	text-align: left;
