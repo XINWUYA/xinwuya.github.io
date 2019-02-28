@@ -208,12 +208,12 @@
 							<p>如果你不嫌啰嗦可以看下我的例子：</p>
 							<pre><code class="language-c++">class A<br/>{<br/>public:<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A() :a(1), b(1.11){}<br/>private:<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>int a;<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>double b;<br/>};<br/>int main()<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A * ptr = (A*)malloc(sizeof(A));<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>return 0;<br/>}<br/></code></pre>
 							<p>在return处设置断点，观看ptr所指内存的内容：</p>
-							<p><img src="./image/ptr1.png" alt=""></p>
+							<p><img src="./images/ptr1.png" alt=""></p>
 							<p>可以看出A的默认构造函数并没有被调用，因为数据成员a,b的值并没有得到初始化，这也是上面我为什么说使用malloc/free来处理C++的自定义类型不合适，其实不止自定义类型，标准库中凡是需要构造/析构的类型通通不合适。</p>
 							<p>而使用new来分配对象时：</p>
 							<pre><code class="language-c++">int main()<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A * ptr = new A;<br/>}<br/></code></pre>
 							<p>查看程序生成的汇编代码可以发现，A的默认构造函数被调用了：</p>
-							<p><img src="./image/ptr2.png" alt=""></p>
+							<p><img src="./images/ptr2.png" alt=""></p>
 						</div>
 						<div id="text_06">
 							<h3>6.对数组的处理</h3>
