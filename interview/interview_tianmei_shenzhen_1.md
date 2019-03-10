@@ -87,9 +87,25 @@
 
 6. 红黑树是一棵平衡二叉树么？为什么会分红黑结点，目的是为了解决算法上什么问题，插入和删除的时候会对树的结点会做什么操作？红黑树每个结点是怎么构造的，30~40万个结点有多少层？
 
+   https://www.cnblogs.com/tiancai/p/9072813.html
+
+   https://blog.csdn.net/varyall/article/details/49622739
+
+   <font color=#FF8C00>红黑树不是一棵严格意义上的平衡二叉树</font>
+
+   <font color=#FF8C00>红黑节点是为了解决</font>
+
 7. hash碰撞怎么解决？开放地址法怎么实现的？
 
+   https://www.cnblogs.com/ChaosJu/p/4756085.html
+
+   <font color=#FF8C00>1）链地址法：</font>
+
+   <font color=#FF8C00>2）开放地址法：</font>
+
 8. 假设要存储一个数据集，key和value都是32位整型，数据量大约有30~40万，对查找不在意，在意的是存储效率，使用map和unordered_map哪个存储空间比较少？
+
+9. 
 
 ## 三、图形学
 
