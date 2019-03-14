@@ -189,7 +189,7 @@
 							<p>从C语言走入C++阵营的新手可能会把这个习惯带入C++：</p>
 							<pre><code class="language-c++">int * a = new int();<br/>if(NULL == a)<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>...<br/>}<br/>else<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>...<br/>}<br/></code></pre>
 							<p>实际上这样做一点意义也没有，因为new根本不会返回NULL，而且程序能够执行到if语句已经说明内存分配成功了，如果失败早就抛异常了。正确的做法应该是使用异常机制：</p>
-							<pre><code class="language-c++">try<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>int *a = new int();<br/>}<br/>catch (bad_alloc)<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>...<br/>}</code></pre>
+							<pre><code class="language-c++">try<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>int *a = new int();<br/>}<br/>catch (std::bad_alloc& e)<br/>{<br/><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>...<br/>}</code></pre>
 						</div>
 						<div id="text_04">
 							<h3>4.是否指定内存大小</h3>
