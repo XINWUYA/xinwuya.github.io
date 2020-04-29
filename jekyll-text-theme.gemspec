@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kitian616@outlook.com"]
 
   spec.summary       = %q{A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.}
-  spec.homepage      = "https://github.com/XINWUYA/xinwuya.github.io"
+  spec.homepage      = "https://github.com/kitian616/jekyll-TeXt-theme"
   spec.license       = "MIT"
 
   spec.metadata["plugin_type"] = "theme"
@@ -23,5 +23,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jemoji", "~> 0.8"
 
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake", ">= 12.3.3"
+  spec.add_development_dependency "rake", "~> 10.0"
 end
