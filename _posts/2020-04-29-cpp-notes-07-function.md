@@ -1,6 +1,15 @@
 ---
 title: 【C++笔记】07 函数
 tags: C++笔记
+layout: article
+key: CPP_NOTES_07
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: assets/images/cover2.jpg
 ---
 
 ## 1.形参和实参的功能是做数据传送。发生函数调用时，主调函数把实参的值传送给被调函数的形参，从而实现主调函数向被调函数的数据传送。

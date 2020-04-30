@@ -1,6 +1,15 @@
 ---
 title: 【C++笔记】08 指针与引用
 tags: C++笔记
+layout: article
+key: CPP_NOTES_08
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: assets/images/cover2.jpg
 ---
 
 ## 1.一个有效的指针必然是以下三种状态之一：

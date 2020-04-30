@@ -1,6 +1,15 @@
 ---
 title: 【C++笔记】04 结构体、共用体与枚举
 tags: C++笔记
+layout: article
+key: CPP_NOTES_04
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: assets/images/cover2.jpg
 ---
 
 ## 1.结构体

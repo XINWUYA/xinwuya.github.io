@@ -1,6 +1,15 @@
 ---
 title: 【C++笔记】06 C预处理器、作用域、static以及内存管理
 tags: C++笔记
+layout: article
+key: CPP_NOTES_06
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: assets/images/cover2.jpg
 ---
 # 
 

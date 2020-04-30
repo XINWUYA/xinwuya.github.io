@@ -1,6 +1,15 @@
 ---
 title: 【C++笔记】05 运算符及其优先级
 tags: C++笔记
+layout: article
+key: CPP_NOTES_05
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: assets/images/cover2.jpg
 ---
 
 ## 1.运算符
