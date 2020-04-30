@@ -2,7 +2,7 @@
 title: 【C++笔记】01 数组
 tags: C++笔记
 layout: article
-key: CPP_NOTES_ARRAY
+key: CPP_NOTES_01
 mode: immersive
 header:
   theme: dark
