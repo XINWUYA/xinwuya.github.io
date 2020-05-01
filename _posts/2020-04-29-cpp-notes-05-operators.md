@@ -145,13 +145,17 @@ if(n>1 && ((n & (n-1)) == 0))
 
 - 不用算数运算符实现两个数的加法：
 
-      int add_no_arithm(int a, int b)
-      {
-      	if(b == 0) return a;
-      	int sum = a ^ b;
-      	int carry = a & b;
-      	return add_no_arithm(sum, carry);
-      }
+  ```c
+  int add_no_arithm(int a, int b)
+  {
+      if(b == 0) 
+          return a;
+      
+      int sum = a ^ b;
+      int carry = a & b;
+      return add_no_arithm(sum, carry);
+  }
+  ```
 
 ### 5.2 移位运算符
 
@@ -173,24 +177,24 @@ if(n>1 && ((n & (n-1)) == 0))
   ```c
   int fun(unsigned int n)
   {
-  	int count = 0;
-  	while(n > 0)
-  	{
-  		n &= (n-1);
-  		count++;
-  	}
-  	return count; 
+      int count = 0;
+      while(n > 0)
+      {
+          n &= (n-1);
+          count++;
+      }
+      return count; 
   }
   //或
   int fun(int n)
   {
-  	int count = 0;
-  	while(n != 0)//考虑负数
-  	{
-  		n &= (n-1);
-  		count++;
-  	}
-  	return count; 
+      int count = 0;
+      while(n != 0)//考虑负数
+      {
+          n &= (n-1);
+          count++;
+      }
+      return count; 
   }
   ```
 

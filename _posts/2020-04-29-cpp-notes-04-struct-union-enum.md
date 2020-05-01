@@ -63,11 +63,11 @@ struct 类型名{
 
 C/C++允许指定占用特定位数的结构成员。位域的类型应为**整型或枚举**，加冒号，后面接一个数字。该数字指定了使用的位数，且可以使用没有名称的字段来**提供间距**，每个成员都被称为**位域（bit field）**。使用位域可以达到压缩数据的目的。位域的使用和结构体成员的使用相同。
 
-```c++
+```c
 struct Reg{
-	unsigned int SN:4;
-	unsigned int :4;
-	bool good:4;
+    unsigned int SN:4;
+    unsigned int :4;
+    bool good:4;
 }
 ```
 
@@ -143,9 +143,9 @@ union和struct都是从**低地址**开始存放。
 
 int TestByteOrder()
 {
-	short int word=0x0001;
-	char* byte=(char*)&word;
-	return (byte[0] ? LITTLE_ENDIAN: BIG_ENDIAN);
+    short int word=0x0001;
+    char* byte=(char*)&word;
+    return (byte[0] ? LITTLE_ENDIAN: BIG_ENDIAN);
 }
 ```
 
@@ -241,8 +241,8 @@ sizeof(type)
 
   ```c
   struct S{
-  unsigned int f1 : 1;
-  unsigned int f2 : 5;
+      unsigned int f1 : 1;
+      unsigned int f2 : 5;
   }s;
   sizeof(s.f1);//错误
   ```
@@ -273,7 +273,7 @@ sizeof(指针):4(x32)/8(x64)
 
 4）对于数组，`sizeof`可直接计算数组大小。
 
-```c++
+```c
 int a[10];//sizeof(a):40
 char b[]="hello";//sizeof(b):6
 int* c = new int[50];//sizeof(c):4
@@ -281,14 +281,14 @@ int* c = new int[50];//sizeof(c):4
 
 **数组做形参时，数组名称当作指针使用**。
 
-```c++
+```c
 void fun1(char a1[3])
 {
-	int c1=sizeof(a1);//c1=4
+    int c1=sizeof(a1);//c1=4
 }
 void fun2(char a2[])
 {
-	int c2=sizeof(a2);//c2=4
+    int c2=sizeof(a2);//c2=4
 }
 ```
 
@@ -304,30 +304,30 @@ struct的空间计算较为复杂，总体上遵循**两个原则**：
 
 2）**数据对齐原则**——内存按结构体成员的先后顺序排列，当排到该成员变量时，其**前面已摆放的空间大小必须是该成员类型大小的整数倍**，如果不够则补齐，依次向后类推，但在Linux+gcc环境下，若某成员类型所占字节数超过4，如double是8，则前面已摆放的空间大小是4的整数倍即可，不够则对齐。
 
-```c++
+```c
 struct s1{
-	char a;//8（补齐至8的倍数）
-	double b;//8
-	int  c;//4
-	char d;//4（补齐至8的倍数）
+    char a;//8（补齐至8的倍数）
+    double b;//8
+    int  c;//4
+    char d;//4（补齐至8的倍数）
 };//sizeof(s1):24
 struct s2{
-	char a;//1
-	char b;//3(补齐至4的倍数)
-	int  c;//4
-	double d;//8
+    char a;//1
+    char b;//3(补齐至4的倍数)
+    int  c;//4
+    double d;//8
 };//sizeof(s2):16
 
 //若在Linux+gcc环境下，应分别为：20 16
 
 struct s3{
-	char c;
-	int  i;
+    char c;
+    int  i;
 };//sizeof(s3):8
 struct s4{
-	char c1;
-	s3   s;
-	char c2;
+    char c1;
+    s3   s;
+    char c2;
 };//sizeof(s4):16
 ```
 
@@ -343,10 +343,10 @@ struct s4{
 
 当结构体中含有数组时，计算`sizeof`**并未**将数组当成一个整体。
 
-```c++
+```c
 struct s5{
-	char b;
-	char a[8];
+    char b;
+    char a[8];
 };//sizeof(s5):9
 ```
 
@@ -366,11 +366,11 @@ struct s5{
 
 （VS2010环境下`int a:4`，如果后面不是位域，则占用4个字节，Dev-C++/Linux+gcc环境下，如果后面不是位域，仅占1个字节；在压缩情况下，一个字节可以容纳两个`char`）
 
-```c++
+```c
 struct b1{
-	char f1:3;
-	char f2:4;
-	char f3:5;
+    char f1:3;
+    char f2:4;
+    char f3:5;
 };//sizeof(b1):2
 ```
 
@@ -394,19 +394,19 @@ struct b1{
 
 结构体在内存组织上是顺序式的，共用体则是重叠式的，因此共用体的`sizeof`值为**各成员`sizeof`的最大值**。
 
-```c++
+```c
 struct s1{
-	double b;
+    double b;
 };
 union U{
-	int i;
-	char c;
-	s1 s;
+    int i;
+    char c;
+    s1 s;
 };//sizeof(U):8
 
 union U2{
-	char c[9];
-	int vbh[2];
+    char c[9];
+    int vbh[2];
 };//sizeof(U2):12
 //要考虑对齐！
 ```
@@ -415,14 +415,14 @@ union U2{
 
 `enum`只定义了一个常量集合，里面没有“元素”，而枚举类型是当作`int`类型来存储的，故**枚举类型的`sizeof`值都为4**。
 
-```c++
+```c
 struct s1{
-	enum e1{a=0,b,c,d,e,f};
-	enum e2{x,y,z};
+    enum e1{a=0,b,c,d,e,f};
+    enum e2{x,y,z};
 };//sizeof(s1):1
 struct s2{
-	enum e1{a=0,b,c,d,e,f}e_1;
-	enum e2{x,y,z}e_2;
+    enum e1{a=0,b,c,d,e,f}e_1;
+    enum e2{x,y,z}e_2;
 };//sizeof(s2):8
 ```
 

@@ -77,23 +77,23 @@ void* memset(void* s, int ch, size_t n);
   ```c
   const char* findSubstring_BF(const char *str, const char *substr)
   {
-  	assert(str != nullptr && substr != nullptr);
+      assert(str != nullptr && substr != nullptr);
       
-  	int m = strlen(str);
-  	int n = strlen(substr);
-  	if (m < n)
-  		return nullptr;
-  
-  	for(int i =0; i < m - n; ++i)
-  	{
-  		for (int k = 0; k < n; ++k)
-  			if (str[i + k] != substr[k])
-  				break;
-  		if (i == n)
-  			return str+i;
-  	}
-  
-  	return nullptr;
+      int m = strlen(str);
+      int n = strlen(substr);
+      if (m < n)
+          return nullptr;
+      
+      for(int i =0; i < m - n; ++i)
+      {
+          for (int k = 0; k < n; ++k)
+              if (str[i + k] != substr[k])
+                  break;
+          if (i == n)
+              return str+i;
+      }
+      
+      return nullptr;
   }
   ```
 
@@ -102,22 +102,22 @@ void* memset(void* s, int ch, size_t n);
   ```c
   const char* findSubstring_EF(const char *str, const char *substr)
   {
-  	assert(str != nullptr && substr != nullptr);
-  
-  	int m = strlen(str);
-  	int n = strlen(substr);
-  	int i = 0, k = 0;
-  	for(;i < m && k < n; i++)
-  	{
-  		if (str[i] == substr[k]) k++;
-  		else
-  		{
-  			i -= k;//显式回退
-  			k = 0;
-  		}
-  	}
-  	if (k == n) return str + i - n;
-  	else return nullptr;
+      assert(str != nullptr && substr != nullptr);
+      
+      int m = strlen(str);
+      int n = strlen(substr);
+      int i = 0, k = 0;
+      for(;i < m && k < n; i++)
+      {
+          if (str[i] == substr[k]) k++;
+          else
+          {
+              i -= k;//显式回退
+              k = 0;
+          }
+      }
+      if (k == n) return str + i - n;
+      else return nullptr;
   }
   ```
 
@@ -152,7 +152,7 @@ void* memset(void* s, int ch, size_t n);
   ```c
   const char* findSubstring_KMP(const char* src, int slen, const char* patn, int plen, const int* nextval, int pos)
   {
-  	int i = pos, j = 0;
+      int i = pos, j = 0;
       while(i < slen && j < plen)
       {
           if(j == -1 || src[i] == patn[j])
@@ -202,26 +202,26 @@ void* memset(void* s, int ch, size_t n);
 ```c
 bool find_CyclicDisplacement(const char* str, const char* substr)
 {
-	assert(str != nullptr && substr != nullptr);
+    assert(str != nullptr && substr != nullptr);
     
-	int m = strlen(str);
-	int n = strlen(substr);
-	if (m < n) 
+    int m = strlen(str);
+    int n = strlen(substr);
+    if (m < n) 
         return false;
-
-	int p;
-	for(int i =0; i < m; ++i)
-	{
-		p = i;
-		for(int k = 0; k < n; ++k)
-		{
-			if (str[p++%m] != substr[k]) 
+    
+    int p;
+    for(int i =0; i < m; ++i)
+    {
+        p = i;
+        for(int k = 0; k < n; ++k)
+        {
+            if (str[p++%m] != substr[k])
                 break;
-		}
-		if (p - i == n)
-			return true;
-	}
-	return false;
+        }
+        if (p - i == n)
+            return true;
+    }
+    return false;
 }
 ```
 
@@ -231,45 +231,45 @@ bool find_CyclicDisplacement(const char* str, const char* substr)
 ```c
 int convertStrToInt(const char* str)
 {
-	long long result = 0;
-
-	if(str != nullptr)
-	{
-		const char* tempStr = str;
-		bool isNegative = false;
-		if (*tempStr == '+')
-			tempStr++;
-		else if(*tempStr == '-')
-		{
-			tempStr++;
-			isNegative = true;
-		}
-		while(*tempStr != '\0')
-		{
-			if(*tempStr >= '0' && *tempStr <= '9')
-			{
-				result = result * 10 + (*tempStr - '0');
-				if(result > std::numeric_limits<int>::max())
-				{
-					result = 0;
-					break;
-				}
-				tempStr++;
-			}
-			else
-			{
-				std::cout << "Contains non-number members." << std::endl;
-				result = 0;
-				break;
-			}
-		}
-		if(*tempStr == '\0')
-		{
-			if (isNegative)
-				result = -result;
-		}
-	}
-	return result;
+    long long result = 0;
+    
+    if(str != nullptr)
+    {
+        const char* tempStr = str;
+        bool isNegative = false;
+        if (*tempStr == '+')
+            tempStr++;
+        else if(*tempStr == '-')
+        {
+            tempStr++;
+            isNegative = true;
+        }
+        while(*tempStr != '\0')
+        {
+            if(*tempStr >= '0' && *tempStr <= '9')
+            {
+                result = result * 10 + (*tempStr - '0');
+                if(result > std::numeric_limits<int>::max())
+                {
+                    result = 0;
+                    break;
+                }
+                tempStr++;
+            }
+            else
+            {
+                std::cout << "Contains non-number members." << std::endl;
+                result = 0;
+                break;
+            }
+        }
+        if(*tempStr == '\0')
+        {
+            if (isNegative)
+                result = -result;
+        }
+    }
+    return result;
 }
 ```
 
@@ -281,17 +281,17 @@ int convertStrToInt(const char* str)
 bool char_set[256];
 int isUniqueCharString(const char* str)
 {
-	assert(str != nullptr);
+    assert(str != nullptr);
     
-	int len = strlen(str);
-	for(int i = 0; i < len; ++i)
-	{
+    int len = strlen(str);
+    for(int i = 0; i < len; ++i)
+    {
         int val = str[i];
-		if(char_set[val]) 
+        if(char_set[val]) 
             return 0;
-		char_set[val] = true;
-	}
-	return 1;
+        char_set[val] = true;
+    }
+    return 1;
 }
 ```
 
@@ -300,18 +300,18 @@ int isUniqueCharString(const char* str)
 ```c
 int isUniqueCharString(const char* str)
 {
-	assert(str != nullptr);
+    assert(str != nullptr);
     
     int checker = 0;
-	int len = strlen(str);
-	for(int i = 0; i < len; ++i)
-	{
+    int len = strlen(str);
+    for(int i = 0; i < len; ++i)
+    {
         int val = str[i] - 'a';
-		if((checker & (1 << val)) > 0) 
+        if((checker & (1 << val)) > 0) 
             return 0;
-		checker |= (1 << val);
-	}
-	return 1;
+        checker |= (1 << val);
+    }
+    return 1;
 }
 ```
 

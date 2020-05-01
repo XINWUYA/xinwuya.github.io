@@ -21,19 +21,19 @@ article_header:
 ```c
 size_t strlen(const char* str)
 {
-	assert(str != nullptr);
+    assert(str != nullptr);
     
-	size_t ret = 0;
-	while((*str++)!= '\0')
-		ret++;
-	return ret;
+    size_t ret = 0;
+    while((*str++)!= '\0')
+        ret++;
+    return ret;
 }
 
 size_t strlen(const char* str)
 {
-	assert(str != nullptr);
+    assert(str != nullptr);
     
-	return *str == '\0' ? 0 : (1 + strlen(++str));
+    return *str == '\0' ? 0 : (1 + strlen(++str));
 }
 ```
 
@@ -50,17 +50,17 @@ size_t strlen(const char* str)
 ```c
 int strcmp(const char* str1, const char* str2)
 {
-	assert(str1 != nullptr && str2 != nullptr);
-	
-	int ret = 0;
-	while (!(ret = *(unsigned char*)str1 - *(unsigned char*)str2) && *str1)
-	{
-		str1++;
-		str2++;
-	}
-	if (ret > 0) return 1;
-	else if (ret < 0) return -1;
-	return ret;
+    assert(str1 != nullptr && str2 != nullptr);
+    
+    int ret = 0;
+    while (!(ret = *(unsigned char*)str1 - *(unsigned char*)str2) && *str1)
+    {
+        str1++;
+        str2++;
+    }
+    if (ret > 0) return 1;
+    else if (ret < 0) return -1;
+    return ret;
 }
 ```
 
@@ -77,13 +77,13 @@ int strcmp(const char* str1, const char* str2)
 ```c
 char* strcat(char* str1, const char* str2)
 {
-	assert(str1 != nullptr && str2 != nullptr);
-	
-	char * ret = str1;
-	while (*str1)
-		str1++;
-	while (*str1++ = *str2++);
-	return ret;
+    assert(str1 != nullptr && str2 != nullptr);
+    
+    char * ret = str1;
+    while (*str1)
+        str1++;
+    while (*str1++ = *str2++);
+    return ret;
 }
 ```
 
@@ -96,11 +96,11 @@ char* strcat(char* str1, const char* str2)
 ```c
 char* strcpy(char* str1, const char* str2)
 {
-	assert(str1 != nullptr && str2 != nullptr);
-	
-	char * ret = str1;
-	while ((*ret++ = *str2++) != '\0');
-	return ret;
+    assert(str1 != nullptr && str2 != nullptr);
+    
+    char * ret = str1;
+    while ((*ret++ = *str2++) != '\0');
+    return ret;
 }
 ```
 
