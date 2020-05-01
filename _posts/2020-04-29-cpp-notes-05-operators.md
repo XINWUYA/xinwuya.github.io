@@ -270,7 +270,7 @@ int* ip;
 char* pc = (char*)ip;
 ```
 
-C++引进了如下4个强制类型转换操作符用于显式转换：`static_cast`、`dynamic_static`、`const_cast`和`reinterpret_cast`。
+C++引进了如下4个强制类型转换操作符用于显式转换：`static_cast`、`dynamic_cast`、`const_cast`和`reinterpret_cast`。
 
 
 
