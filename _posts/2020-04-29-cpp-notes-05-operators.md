@@ -244,7 +244,7 @@ if(n>1 && ((n & (n-1)) == 0))
 
 ```c
 int ival = 3.14;//3.14将被截断为3
-int *ip=0;//0将转换为空指针
+int* ip=0;//0将转换为空指针
 ```
 
 ### 6.2 表达式的转换
@@ -271,6 +271,81 @@ char* pc = (char*)ip;
 ```
 
 C++引进了如下4个强制类型转换操作符用于显式转换：`static_cast`、`dynamic_cast`、`const_cast`和`reinterpret_cast`。
+
+命名的强制类型转换符号的**一般形式**为：
+
+```c
+cast_name<type>(expression)
+```
+
+其中cast_name为`static_cast`、`dynamic_cast`、`const_cast`和`reinterpret_cast`之一，type为转换的目标类型，expression则是被强制转换的表达式。
+
+#### 6.3.1 `static_cast`
+
+编译器隐式执行的任何类型转换都可以由`static_cast`显式完成。
+
+```c
+double d = 97.0;
+int i = static_cast<int>(d);
+//等效于
+double d = 97.0;
+int i = d;
+```
+
+仅当类型之间可隐式转换时（除类层次间的下行转换以外），`static_cast`的转换才是合法的，否则将存在问题。
+
+类层次间的下行转换不能通过隐式转换完成：
+
+```c
+class base{};
+class child: public base{};
+
+base* b;
+child* c;
+c = static_cast<child*>(b);//下行转换，编译正确，但由于没有动态类型检查，因此不安全。
+c=b;//编译不正确
+```
+
+#### 6.3.2 `dynamic_cast`
+
+`dynamic_cast`的转换类型**必须**是**类的指针**、**类的引用**或者**void***。如果转换类型是指针类型，那么表达式也必须是一个指针；如果转换类型是一个引用，那么表达式也必须是一个引用。
+
+{:.info}
+
+注：与其他强制类型转换不同，**`dynamic_cast`涉及运行时类型检查**。`dynamic_cast`运行时类型检查需要运行时类型信息，而这个信息存储在类的虚函数表中，只有定义了虚函数的类才有虚函数表，没有定义虚函数的类是没有虚函数表的，**对于没有虚函数表的类使用会导致`dynamic_cast`编译错误**。
+
+如果绑定到引用或指针的对象的类型不是目标类型，则`dynamic_cast`失败。如果转换到指针类型的`dynamic_cast`失败，则`dynamic_cast`的结果为0值；如果转换到引用类型的`dynamic_cast`失败，则抛出一个`bad_cast`类型的异常。
+
+`dynamic_cast`操作符**执行两个操作**：首先验证被请求的转换是否有效，只有转换有效，操作符才是进行转换。
+
+一般而言，引用或指针所绑定的对象的类型在编译时是未知的，基类的指针可以赋值为指向派生类对象，同样，基类的引用也可以用派生类对象初始化。因此，`dynamic_cast`操作符执行的验证必须在运行时进行。
+
+**`dynamic_cast`主要用于类层次间的上行转换和下行转换**。
+
+`dynamic_cast`运算符可以在执行期决定真正的类型。如果下行转换是安全的（也就是说，如果基类指针或者引确实指向一个派生类对象），这个运算符会传回转型过的指针。如果downcast不安全，这个运算符会传回空指针。**在上行转换时，`dynamic_cast`与`static_cast`效果是一样的**，但`dynamic_cast`具有类型检查的功能，**比`static_cast`更安全**。
+
+#### 6.3.3 `const_cast`
+
+`const_cast`可以将表达式的`const`性质转换掉。也**只有`const_cast`才能将`const`性质转换掉**。用`const_cast`来执行其他任何类型转换，都会引起编译错误。
+
+```c
+const double value = 0.0;
+double* ptr = nullptr;
+//可以使用const_cast让ptr指向value
+ptr = const_cast<double*>(value);
+```
+
+#### 6.3.4 `reinterpret_cast`
+
+`reinterpret_cast`与使用圆括号将类型括起来的显式类型转换操作功能相同。
+
+```c
+int* ip;
+char* pc = (char*)ip;
+//等效于
+int* ip;
+char* pc = reinterpret_cast<char*>(ip);
+```
 
 
 
